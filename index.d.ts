@@ -65,27 +65,23 @@ type CreateInvoiceResult = {
 }
 
 declare module 'easyinvoice' {
-    const easyinvoice: {
-        createInvoice: (
-            data: InvoiceData,
-            cb?: (result: CreateInvoiceResult) => void
-        ) => Promise<CreateInvoiceResult>
-
-        /**
-         * Download the generated invoice (browser only)
-         * @param {String} filename The file name to save as (defaults to 'invoice.pdf')
-         * @param {String} pdf The base64 PDF string gotten from running createInvoice
-         */
-        download: (filename?: string, pdf?: string) => void
-
-        /**
-         * Render the generated invoice (browser only)
-         * @param elementId The ID of the element to render the PDF in
-         * @param pdf The base64 PDF string gotten from running createInvoice
-         * @param cb Callback function that is called when rendering is complete
-         */
-        render: (elementId: string, pdf?: string, cb?: () => void) => void
-    }
-
-    export = easyinvoice
+    export function createInvoice(
+        data: InvoiceData,
+        cb?: (result: CreateInvoiceResult) => void
+      ) : Promise<CreateInvoiceResult>;
+    
+    /**
+     * Download the generated invoice (browser only)
+     * @param {String} filename The file name to save as (defaults to 'invoice.pdf')
+     * @param {String} pdf The base64 PDF string gotten from running createInvoice
+     */
+    export function download (filename?: string, pdf?: string) : void;
+    
+    /**
+     * Render the generated invoice (browser only)
+     * @param elementId The ID of the element to render the PDF in
+     * @param pdf The base64 PDF string gotten from running createInvoice
+     * @param cb Callback function that is called when rendering is complete
+     */
+    export function render (elementId: string, pdf?: string, cb?: () => void) : void;
 }

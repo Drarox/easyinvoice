@@ -128,6 +128,12 @@ ES6 =<
 import easyinvoice from 'easyinvoice';
 ```
 
+TS
+
+```ts
+import * as easyinvoice from 'easyinvoice';
+```
+
 ## Direct REST API access
 
 ```shell
